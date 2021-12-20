@@ -4,10 +4,14 @@ import Stack from '@mui/material/Stack';
 import Button from "@mui/material/Button";
 import Container from '@mui/material/Container';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
+import AppBar from '@mui/material/AppBar';
+import Toolbar from '@mui/material/Toolbar';
+import Typography from '@mui/material/Typography';
 
 function App() {
   return (
     <div>
+    
       <Container >
         <Game />
       </Container>
@@ -20,10 +24,10 @@ export default App
 const theme = createTheme({
    palette: {
     primary: {
-      main: '#B983FF',
+      main: '#C7B198',
     },
     secondary: {
-      main: '#C9B6E4',
+      main: '#CE97B0',
      
     },
   },
@@ -33,7 +37,7 @@ function Square(props) {
       <ThemeProvider theme={theme}>
         <Button className="btn"
           variant="contained"
-          color="primary"
+          color="secondary"
         disableElevation
          onClick={props.onClick}>
          {props.value}
@@ -52,11 +56,12 @@ class Board extends React.Component {
       />
     );
   }
-
   render() {
      return (
       <div>
-         <Grid className="board" container direction="column" spacing={1.3} >   
+         
+
+         <Grid className="board" container direction="column"  justifyContent="center" spacing={1.3} >   
           <Grid item >
             <Stack direction="row"  spacing={1.3}>
                 {this.renderSquare(0)} {this.renderSquare(1)} {this.renderSquare(2)}
@@ -78,7 +83,18 @@ class Board extends React.Component {
     );
   }
 }
-
+function AppBarr(){
+  return(
+<AppBar>
+      <Toolbar>
+        <Typography variant="h3">
+             Tic Tac Toe
+        </Typography>
+      </Toolbar>
+   </AppBar>
+  )
+  
+}
 class Game extends React.Component {
   constructor(props) {
     super(props);
@@ -88,6 +104,7 @@ class Game extends React.Component {
       }],
       xIsNext: true,
       stepNumber: 0,
+     
     };
   }
 
@@ -95,6 +112,7 @@ class Game extends React.Component {
     const history = this.state.history.slice(0, this.state.stepNumber + 1);
     const current = history[history.length - 1];
     const squares = current.squares.slice();
+
     if (calculateWinner(squares) || squares[i]) {
       return;
     }
@@ -119,16 +137,16 @@ class Game extends React.Component {
     const history = this.state.history;
     const current = history[this.state.stepNumber];
     const winner = calculateWinner(current.squares);
-
+    
     const moves = history.map((step, move) => {
       const desc = move ?
         'Go to Step # ' + move :
         'Start the Game';
       return (
-        <li key={move}>
+        <li  className="btn3" key={move}>
            <ThemeProvider theme={theme}>
-            <Button variant="contained"
-              color="secondary" 
+            <Button className="btn2" variant="contained"
+              sx={{ backgroundColor: "#CE97B0", fontSize: "15px" }} 
               onClick={() => this.jumpTo(move)}>
               {desc}
            </Button>
@@ -140,9 +158,9 @@ class Game extends React.Component {
 
     let status;
     if (winner === "X" || winner === "O") {
-      status = "Winner: " + winner;
-    } else if (winner === "None") {
-      status = "Draw";
+      status = "** "+ winner+" has Won **";
+    } else if (current.squares.every(Boolean)) {
+      status = "There has been a Draw!!";
     } else {
       status = "Next player: " + (this.state.xIsNext ? "X" : "O");
     }
@@ -150,6 +168,12 @@ class Game extends React.Component {
     return (
       <Grid container flexDirection={{ xs: "column", sm: "row" }}
         alignItems={{ xs: "center", sm: "flex-start" }} justifyContent="center" >
+          <Grid item>
+             <ThemeProvider theme={theme}>
+               <AppBarr color="primary"/>
+             </ThemeProvider>
+          </Grid> 
+          <br /><br />
           <Grid item sm="6" xs="12">
             <Board
               squares={current.squares}
@@ -167,21 +191,18 @@ class Game extends React.Component {
 
 function calculateWinner(squares) {
   const lines = [
-    [0, 1, 2],
-    [3, 4, 5],
-    [6, 7, 8],
-    [0, 3, 6],
-    [1, 4, 7],
-    [2, 5, 8],
-    [0, 4, 8],
-    [2, 4, 6],
+    [0, 1, 2],[3, 4, 5], [6, 7, 8],
+    [0, 3, 6],[1, 4, 7],[2, 5, 8],
+    [0, 4, 8], [2, 4, 6],
   ];
   for (let i = 0; i < lines.length; i++) {
     const [a, b, c] = lines[i];
     if (squares[a] && squares[a] === squares[b] && squares[a] === squares[c]) {
+
       return squares[a];
     }
   }
   return null;
 }
+
 

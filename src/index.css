@@ -1,5 +1,6 @@
 body {
   background-color: #d0cab2;
+  margin-top: 100px;
 }
 .btn {
   font-family: "Montserrat", sans-serif;
@@ -44,4 +45,26 @@ ul {
 .status {
   font-size: 30px;
   font-weight: bolder;
+  padding-top: 25px;
+}
+.btn2 {
+  font-family: "Montserrat", sans-serif;
+  text-transform: uppercase;
+  border: 2px solid #7333a7 !important;
+  border-radius: 5px;
+  cursor: pointer;
+  position: relative;
+  top: 0;
+  margin-top: 5px;
+}
+.btn2:hover {
+  top: 1px;
+  background-color: rgb(158, 144, 167) !important;
+}
+.btn2:active {
+  top: 2px;
+  background-color: rgba(144, 117, 158, 0.568) !important;
+}
+.btn3 {
+  padding-top: 10px;
 }
