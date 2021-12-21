@@ -34,6 +34,7 @@ make a folder you want to put the react project from github in it.
 ### `git clone {the url to the GitHub repo}`
 
 This clones the repository from github.
+
 2- Go into the new folder :
 
 ### `cd {myfolder}`
