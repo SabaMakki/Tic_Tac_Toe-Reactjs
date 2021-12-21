@@ -2,6 +2,39 @@
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
+# Hello, welcome to my Tic Tac Toe project
+
+In order to be able to work with React JS, it is necessary to check and install some items.
+
+# First Step: install node js
+
+You can run the following command in the cmd or terminal to find out if you have Node JS installed on your system.
+
+### `node --version`
+
+If the command was unknown to the system, you must install Node.
+You can download it from the link below :
+(https://nodejs.org/en/)
+Then run the above command again to make sure it is installed. you can also do the same for npm :
+
+### `npm --version`
+
+# Second Step : use vs code
+
+you should have Visual Studio Code to work with react so easily.
+You can download it from the link below :
+(https://code.visualstudio.com/download)
+
+# Third Step : create react app
+
+In Vs code, open the terminal(ctrl+`) and with this command go to the folder you want to make react folders in :
+
+### `cd myfolder`
+
+and run the following command
+
+open Te
+
 ## Available Scripts
 
 In the project directory, you can run:
