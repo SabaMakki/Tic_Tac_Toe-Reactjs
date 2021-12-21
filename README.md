@@ -25,15 +25,28 @@ you should have Visual Studio Code to work with react so easily.
 You can download it from the link below :
 (https://code.visualstudio.com/download)
 
-# Third Step : create react app
+# Third Step : clone from github
 
-In Vs code, open the terminal(ctrl+`) and with this command go to the folder you want to make react folders in :
+make a folder you want to put the react project from github in it.
 
-### `cd myfolder`
+1- In Vs code, open the terminal(ctrl+`) and run this commands :
 
-and run the following command
+### `git clone {the url to the GitHub repo}`
 
-open Te
+This clones the repository from github.
+2- Go into the new folder :
+
+### `cd {myfolder}`
+
+3- then run this command :
+
+### `npm install`
+
+This installs the required dependencies.
+
+4-To run the React project.
+
+### `npm start`
 
 ## Available Scripts
 
